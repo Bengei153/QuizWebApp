@@ -21,6 +21,7 @@ public sealed class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.HasDefaultSchema("quiz_schema");
 
         /*modelBuilder.ApplyConfigurationsFromAssembly(
             typeof(AppDbContext).Assembly);*/
