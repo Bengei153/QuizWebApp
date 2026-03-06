@@ -12,7 +12,7 @@ using QuizSystem.Api.QuestionSystem.Infrastructure.Persistence;
 namespace QuizSystem.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260302173836_init_db")]
+    [Migration("20260306125320_init_db")]
     partial class init_db
     {
         /// <inheritdoc />
@@ -20,6 +20,7 @@ namespace QuizSystem.Api.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("quiz_schema")
                 .HasAnnotation("ProductVersion", "9.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -51,7 +52,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Answers");
+                    b.ToTable("Answers", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.AttemptAnswer", b =>
@@ -76,7 +77,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasIndex("QuizAttemptId");
 
-                    b.ToTable("AttemptAnswers");
+                    b.ToTable("AttemptAnswers", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.Folder", b =>
@@ -113,7 +114,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasIndex("QuestionGroupId");
 
-                    b.ToTable("Folders");
+                    b.ToTable("Folders", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.Question", b =>
@@ -148,7 +149,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasIndex("FolderId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.QuestionGroup", b =>
@@ -184,7 +185,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("QuestionGroups");
+                    b.ToTable("QuestionGroups", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.QuestionOption", b =>
@@ -220,7 +221,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("QuestionOptions");
+                    b.ToTable("QuestionOptions", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.QuizAttempt", b =>
@@ -252,7 +253,7 @@ namespace QuizSystem.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("QuizAttempts");
+                    b.ToTable("QuizAttempts", "quiz_schema");
                 });
 
             modelBuilder.Entity("QuizSystem.Api.QuestionSystem.Domain.Entities.Answer", b =>
@@ -278,7 +279,7 @@ namespace QuizSystem.Api.Migrations
 
                             b1.HasIndex("AnswerId");
 
-                            b1.ToTable("AnswerValues", (string)null);
+                            b1.ToTable("AnswerValues", "quiz_schema");
 
                             b1.WithOwner()
                                 .HasForeignKey("AnswerId");
@@ -328,7 +329,7 @@ namespace QuizSystem.Api.Migrations
 
                             b1.HasKey("QuestionId");
 
-                            b1.ToTable("Questions");
+                            b1.ToTable("Questions", "quiz_schema");
 
                             b1.WithOwner()
                                 .HasForeignKey("QuestionId");
