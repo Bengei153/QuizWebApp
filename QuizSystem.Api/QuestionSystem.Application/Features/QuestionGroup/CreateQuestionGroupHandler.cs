@@ -27,6 +27,9 @@ namespace QuizSystem.Api.QuestionSystem.Application.Features.QuestionGroup
             if (string.IsNullOrWhiteSpace(userId))
                 throw new InvalidOperationException("Couldn't get user");
 
+            if (string.IsNullOrWhiteSpace(orgId))
+                throw new InvalidOperationException("Could not get organisation");
+
             var questionGroup = new Domain.Entities.QuestionGroup(
                 command.Name)
             {

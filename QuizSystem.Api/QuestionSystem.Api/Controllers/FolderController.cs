@@ -107,8 +107,8 @@ namespace QuizSystem.Api.QuestionSystem.Api.Controllers
             try
             {
                 var result = await _updateHandler.Handle(new UpdateFolderCommand(
-                    groupId,
                     folderId,
+                    groupId,
                     request.Name
                 ));
 
@@ -132,7 +132,7 @@ namespace QuizSystem.Api.QuestionSystem.Api.Controllers
         {
             try
             {
-                await _deleteFolder.Handle(new DeleteFolderCommand(folderId, groupId));
+                await _deleteFolder.Handle(new DeleteFolderCommand(groupId, folderId));
                 return NoContent();
             }
             catch (ForbiddenAccessException ex)

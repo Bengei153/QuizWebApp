@@ -18,6 +18,7 @@ namespace QuizSystem.Api.QuestionSystem.Infrastructure.Repositories
         public async Task AddAsync(QuestionGroup questionGroup)
         {
             await _context.QuestionGroups.AddAsync(questionGroup);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<bool> DeleteAsync(Guid id, string organisationId)
@@ -43,6 +44,16 @@ namespace QuizSystem.Api.QuestionSystem.Infrastructure.Repositories
         {
             return await _context.QuestionGroups
                 .Where(qg => qg.OrganisationId == organisationId && !qg.IsDeleted)
+                .ToListAsync();
+        }
+
+        public async Task<List<QuestionGroup>> GetAllAsync()
+        {
+            return await _context.QuestionGroups
+                .Include(qg => qg.Folders)
+                .ThenInclude(f => f.Questions)
+                .ThenInclude(q => q.Options)
+                .Where(qg => !qg.IsDeleted)
                 .ToListAsync();
         }
 

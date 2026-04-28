@@ -1,7 +1,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
-using QuizSystem.Api.QuestionSystem.Application.Dtos;
-using QuizSystem.Api.QuestionSystem.Application.Interfaces;
+using QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
 using QuizSystem.Api.QuestionSystem.Domain.Entities;
 using QuizSystem.Api.QuestionSystem.Infrastructure.Persistence;
 
@@ -28,11 +27,6 @@ public sealed class QuestionRepository : IQuestionRepository
 
     public async Task AddAsync(Question question)
         => await _context.Questions.AddAsync(question);
-
-    public Task GetWithOptionsAsync(object questionId)
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task UpdateAsync(Question question)
     {

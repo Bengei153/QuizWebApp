@@ -66,6 +66,10 @@ namespace QuizSystem.Api.QuestionSystem.Api.Controllers
         {
             try
             {
+                // Basic validation
+                if (command == null || string.IsNullOrWhiteSpace(command.Name))
+                    return BadRequest(new { message = "Question group name is required." });
+
                 // Extract authenticated user from JWT claims
                 var userId = _currentUserService.UserId;
                 var orgId = _currentUserService.OrganisationId;
@@ -77,6 +81,11 @@ namespace QuizSystem.Api.QuestionSystem.Api.Controllers
 
 
                 return Ok(new { message = "Question Group created successfully" });
+            }
+            catch (DomainException dex)
+            {
+                Console.WriteLine(dex.Message);
+                return BadRequest(new { message = dex.Message });
             }
             catch (Exception ex)
             {

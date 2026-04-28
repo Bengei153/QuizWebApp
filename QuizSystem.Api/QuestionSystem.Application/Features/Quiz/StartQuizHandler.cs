@@ -1,5 +1,6 @@
 using System;
 using MediatR;
+using QuizSystem.Api.QuestionSystem.Application.Abstractions;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
 using QuizSystem.Api.QuestionSystem.Application.Dtos;
 using QuizSystem.Api.QuestionSystem.Domain.Entities;
@@ -12,15 +13,18 @@ public class StartQuizHandler
     private readonly IFolderRepository _groupRepository;
     private readonly IQuizAttemptRepository _attemptRepository;
     private readonly ICurrentUserService _currentUser;
+    private readonly IUnitOfWork _unitOfWork;
 
     public StartQuizHandler(
         IFolderRepository groupRepository,
         IQuizAttemptRepository attemptRepository,
-        ICurrentUserService currentUser)
+        ICurrentUserService currentUser,
+        IUnitOfWork unitOfWork)
     {
         _groupRepository = groupRepository;
         _attemptRepository = attemptRepository;
         _currentUser = currentUser;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<StartQuizDto> Handle(
@@ -51,6 +55,7 @@ public class StartQuizHandler
         };
 
         await _attemptRepository.AddAsync(attempt);
+        await _unitOfWork.SaveChangesAsync();
 
         return new StartQuizDto
         {

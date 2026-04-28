@@ -1,11 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using QuizSystem.Api.QuestionSystem.Application.Dtos;
-using QuizSystem.Api.QuestionSystem.Application.Features;
+using QuizSystem.Api.QuestionSystem.Application.Features.Answers;
 using QuizSystem.Api.QuestionSystem.Application.Features.Questions.CreateQuestion;
-using QuizSystem.Api.QuestionSystem.Application.Features.Questions.UpdateFolder;
 using QuizSystem.Api.QuestionSystem.Application.Features.Questions.UpdateQuestion;
-using QuizSystem.Api.QuestionSystem.Domain.Enums;
 
 namespace QuizSystem.Api.QuestionSystem.Api.Controllers
 {

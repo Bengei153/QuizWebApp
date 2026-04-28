@@ -17,5 +17,16 @@ public class QuestionGroupConfiguration : IEntityTypeConfiguration<QuestionGroup
             .IsRequired()
             .HasMaxLength(200);
 
+        builder.Property(qg => qg.OrganisationId)
+            .IsRequired()
+            .HasMaxLength(36);
+
+        builder.Property(qg => qg.CreatedByUserId)
+            .IsRequired()
+            .HasMaxLength(255);
+
+        builder.HasIndex(qg => new { qg.OrganisationId, qg.Name })
+            .IsUnique()
+            .HasDatabaseName("idx_questiongroups_organisationid_name");
     }
 }

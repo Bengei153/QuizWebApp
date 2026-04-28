@@ -99,7 +99,7 @@ public class CurrentUserService : ICurrentUserService
 
             // try common claim names used by various identity providers
             var claim = ctx.User.FindFirst("organization_id")
-                    ?? ctx.User.FindFirst("Organisation")
+                    ?? ctx.User.FindFirst("organisation_id")
                     ?? ctx.User.FindFirst("org")
                     ?? ctx.User.FindFirst("tenant")
                     ?? ctx.User.FindFirst("tenant_id");

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
-using QuizSystem.Api.QuestionSystem.Application.Interfaces;
 using QuizSystem.Api.QuestionSystem.Infrastructure.Persistence;
 using QuizSystem.Api.QuestionSystem.Infrastructure.Repositories;
 

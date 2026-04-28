@@ -23,8 +23,8 @@ public sealed class AppDbContext : DbContext
 
         modelBuilder.HasDefaultSchema("quiz_schema");
 
-        /*modelBuilder.ApplyConfigurationsFromAssembly(
-            typeof(AppDbContext).Assembly);*/
+        modelBuilder.ApplyConfigurationsFromAssembly(
+            typeof(AppDbContext).Assembly);
 
         modelBuilder.Entity<Answer>(answer =>
         {
@@ -91,18 +91,6 @@ public sealed class AppDbContext : DbContext
             option.Property(o => o.Text)
                 .HasMaxLength(200)
                 .IsRequired();
-        });
-
-        modelBuilder.Entity<QuestionGroup>(group =>
-        {
-            group.HasKey(g => g.Id);
-            group.Property(g => g.Name)
-                .HasMaxLength(200)
-                .IsRequired();
-
-            group.Property(q => q.OrganisationId)
-                .HasMaxLength(36)
-                .IsRequired(false);
         });
 
         modelBuilder.Entity<Folder>(folder =>

@@ -1,6 +1,6 @@
 using System;
 
-namespace QuizSystem.Api.QuestionSystem.Application.Dtos;
+namespace QuizSystem.Api.QuestionSystem.Application.Features.Answers;
 
 public sealed class SubmitAnswerCommand
 {

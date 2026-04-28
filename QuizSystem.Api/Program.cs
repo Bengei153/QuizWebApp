@@ -124,6 +124,12 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+
+    // Map Unit type to void
+    c.MapType<MediatR.Unit>(() => new Microsoft.OpenApi.Models.OpenApiSchema
+    {
+        Type = "object"
+    });
 });
 
 // HTTP Context accessor for extracting user claims

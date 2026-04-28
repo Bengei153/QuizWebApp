@@ -1,6 +1,6 @@
 using System;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions;
-using QuizSystem.Api.QuestionSystem.Application.Interfaces;
+using QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
 
 namespace QuizSystem.Api.QuestionSystem.Application.Features.Questions.AddOption;
 

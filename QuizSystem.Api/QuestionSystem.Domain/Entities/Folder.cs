@@ -14,6 +14,7 @@ public class Folder : BaseEntity
 {
     public string Name { get; set; } = null!;
     public Guid QuestionGroupId { get; private set; }
+    public int DurationMinutes { get; set; } = 30; // Default duration in minutes
 
     private readonly List<Question> _questions = new();
     public IReadOnlyCollection<Question> Questions => _questions;

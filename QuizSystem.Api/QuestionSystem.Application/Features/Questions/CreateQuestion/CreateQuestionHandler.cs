@@ -1,7 +1,6 @@
 using System;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions;
 using QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
-using QuizSystem.Api.QuestionSystem.Application.Interfaces;
 using QuizSystem.Api.QuestionSystem.Domain.Entities;
 using QuizSystem.Api.QuestionSystem.Domain.ValueObjects;
 

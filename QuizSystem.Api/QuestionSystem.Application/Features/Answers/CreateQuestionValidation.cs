@@ -1,7 +1,6 @@
 using System;
 using FluentValidation;
 using QuizSystem.Api.QuestionSystem.Application.Features.Questions.CreateQuestion;
-using QuizSystem.Api.QuestionSystem.Domain.ValueObjects;
 
 namespace QuizSystem.Api.QuestionSystem.Application.Features.Answers;
 

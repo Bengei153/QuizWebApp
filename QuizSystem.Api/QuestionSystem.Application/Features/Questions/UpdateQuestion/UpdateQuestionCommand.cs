@@ -1,8 +1,7 @@
 using System;
 using QuizSystem.Api.QuestionSystem.Domain.Enums;
-using QuizSystem.Api.QuestionSystem.Domain.ValueObjects;
 
-namespace QuizSystem.Api.QuestionSystem.Application.Features.Questions.UpdateFolder;
+namespace QuizSystem.Api.QuestionSystem.Application.Features.Questions.UpdateQuestion;
 
 public class UpdateQuestionCommand
 {

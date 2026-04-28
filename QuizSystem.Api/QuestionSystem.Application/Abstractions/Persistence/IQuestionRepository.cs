@@ -1,8 +1,7 @@
 using System;
-using QuizSystem.Api.QuestionSystem.Application.Dtos;
 using QuizSystem.Api.QuestionSystem.Domain.Entities;
 
-namespace QuizSystem.Api.QuestionSystem.Application.Interfaces;
+namespace QuizSystem.Api.QuestionSystem.Application.Abstractions.Persistence;
 
 public interface IQuestionRepository
 {
@@ -10,6 +9,5 @@ public interface IQuestionRepository
     Task<Question?> GetWithOptionsAsync(Guid id);
     Task AddAsync(Question question);
     Task UpdateAsync(Question question);
-    Task GetWithOptionsAsync(object questionId);
     Task<int> CountByGroupIdAsync(Guid groupId);
 }

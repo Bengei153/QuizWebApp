@@ -1,6 +1,6 @@
 using System;
+
 using FluentValidation;
-using QuizSystem.Api.QuestionSystem.Application.Dtos;
 
 namespace QuizSystem.Api.QuestionSystem.Application.Features.Answers;
 
@@ -16,3 +16,4 @@ public class SubmitAnswerValidator : AbstractValidator<SubmitAnswerCommand>
             .WithMessage("Answer must contain text or at least one option.");
     }
 }
+

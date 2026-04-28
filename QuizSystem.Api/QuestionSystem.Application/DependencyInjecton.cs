@@ -1,6 +1,7 @@
 using System;
 using MediatR;
-using QuizSystem.Api.QuestionSystem.Application.Features;
+using QuizSystem.Api.QuestionSystem.Application.Features.Answers;
+using QuizSystem.Api.QuestionSystem.Application.Features.Admin;
 using QuizSystem.Api.QuestionSystem.Application.Features.Folders;
 using QuizSystem.Api.QuestionSystem.Application.Features.QuestionGroup;
 using QuizSystem.Api.QuestionSystem.Application.Features.Questions.AddOption;
@@ -34,7 +35,6 @@ public static class DependencyInjection
         services.AddScoped<GetFolderHandler>();
         services.AddScoped<GetAllFolderHandler>();
         services.AddScoped<CreateFolderHandler>();
-        services.AddScoped<CreateQuestionHandler>();
         services.AddScoped<CreateQuestionGroupHandler>();
         services.AddScoped<AddOptionHandler>();
         services.AddScoped<GetQuestionHandler>();
@@ -42,7 +42,6 @@ public static class DependencyInjection
         services.AddScoped<UpdateQuestionGroupHandler>();
         services.AddScoped<SubmitAnswerHandler>();
         services.AddScoped<DeleteQuestionGroupHandler>();
-        services.AddScoped<UpdateQuestionHandler>();
 
         services.AddMediatR(typeof(GetAttemptDetailsHandler).Assembly);
         services.AddMediatR(typeof(GetAttemptDetailsHandler).Assembly);
@@ -69,6 +68,5 @@ public static class DependencyInjection
         return services;
     }
 }
-
 
 
