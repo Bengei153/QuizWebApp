@@ -14,7 +14,6 @@ builder.Services.AddControllers();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 // Application + Infrastructure
 builder.Services.AddApplication();
@@ -140,7 +139,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "QuizSystem API V1");
+    options.SwaggerEndpoint("v1/swagger.json", "QuizSystem API V1");
 });
 
 // SECURITY: Order matters! Authentication must come before Authorization

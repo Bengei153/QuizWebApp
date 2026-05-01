@@ -12,7 +12,7 @@ using QuizSystem.Api.QuestionSystem.Infrastructure.Persistence;
 namespace QuizSystem.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260430101537_newDb")]
+    [Migration("20260501104034_newDb")]
     partial class newDb
     {
         /// <inheritdoc />
